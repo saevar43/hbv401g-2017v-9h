@@ -7,6 +7,10 @@ import Model.Booking;
 import Model.Hotel;
 import Model.Room;
 
+/*
+ * Class that contains functions that interact mostly with the Bookings table in the database.
+ * @author Sævar Ingi Sigurðsson, sis108@hi.is
+ */
 public class BookingConnection {
 	
 	/*

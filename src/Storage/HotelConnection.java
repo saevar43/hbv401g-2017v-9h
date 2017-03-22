@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import Model.Hotel;
 
+/*
+ * Class that contains functions that interact mostly with the Hotels table in the database.
+ * @author Sævar Ingi Sigurðsson, sis108@hi.is
+ */
 public class HotelConnection {
 	
 	/*
