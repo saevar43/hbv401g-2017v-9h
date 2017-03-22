@@ -1,24 +1,29 @@
+package Model;
 
 public class Hotel {
 	
-	public int id;
-	public String name;
-	public double rating;
-	public String location;
+	private int ID;
+	private String NAME;
+	private double rating;
+	private String LOCATION;
 	
 	public Hotel(int hotelId, String hotelName, double hotelRating, String hotelLocation) {
-		id = hotelId;
-		name = hotelName;
+		ID = hotelId;
+		NAME = hotelName;
 		rating = hotelRating;
-		location = hotelLocation;
+		LOCATION = hotelLocation;
 	}
 
 	public int getID() {
-		return id;
+		return ID;
 	}
 	
 	public String getName() {
-		return name;
+		return NAME;
+	}
+	
+	public void setRating(double rating) {
+		this.rating = rating;
 	}
 	
 	public double getRating() {
@@ -26,6 +31,6 @@ public class Hotel {
 	}
 	
 	public  String getLocation() {
-		return location;
+		return LOCATION;
 	}
 }

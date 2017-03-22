@@ -1,5 +1,8 @@
+package Storage;
 import java.sql.*;
 import java.util.ArrayList;
+
+import Model.Hotel;
 
 public class HotelConnection {
 	
@@ -33,7 +36,7 @@ public class HotelConnection {
 	}
 	
 	/*
-	 * Function that DELETES a hotel from the database.2
+	 * Function that DELETES a hotel from the database.
 	 * @param id - The ID of the hotel to be removed.
 	 */
 	public static void removeHotel(int id) {
@@ -58,6 +61,41 @@ public class HotelConnection {
 			System.exit(0);
 		}
 		System.out.println("Successfully removed hotel from database.");
+	}
+	
+	/*
+	 * Function that returns a hotel specified by it's ID.
+	 * @param id - The ID of the hotel to be returned.
+	 * @return hotel - The hotel corresponding to the given ID.
+	 */
+	public static Hotel getHotelById(int id) {
+		Connection c = null;
+		Statement stmt = null;
+		Hotel hotel = null;
+		
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:hotelbooking.db");
+			c.setAutoCommit(false);
+			System.out.println("Opened database sucessfully");
+			
+			stmt = c.createStatement();
+			String sql = "SELECT * FROM Hotels WHERE ID = " + id + ";";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				hotel = new Hotel(rs.getInt("ID"), rs.getString("Name"), rs.getFloat("Rating"),
+						rs.getString("Location"));
+			}
+			
+			stmt.close();
+			c.commit();
+			c.close();
+		} catch(Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		System.out.println("Successfully fetched hotel from database.");
+		return hotel;
 	}
 	
 	/*
@@ -92,10 +130,10 @@ public class HotelConnection {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		System.out.println("Operation successful.");
+		System.out.println("Successfully fetched hotels from database.");
 		return hotels;
 	}
-
+	
 	/*
 	 * Function that returns a list of hotels by rating.
 	 * @param rating - Rating specified.
@@ -128,7 +166,7 @@ public class HotelConnection {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		System.out.println("Operation successful.");
+		System.out.println("Successfully fetched hotels from database.");
 		return hotels;
 	}
 	
@@ -164,7 +202,7 @@ public class HotelConnection {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		System.out.println("Operation successful.");
+		System.out.println("Successfully fetched hotels from database.");
 		return hotels;
 	}
 	
