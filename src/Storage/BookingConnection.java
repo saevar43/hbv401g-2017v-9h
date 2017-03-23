@@ -13,13 +13,14 @@ import Model.Room;
  */
 public class BookingConnection {
 	
+	private static Connection c = null;
+	private static Statement stmt = null;
+	
 	/*
 	 * Function that adds a booking to the database.
 	 * @params id, kt, hotelId, roomNo, sDate, eDate, checkout - Variables to create new booking.
 	 */
 	public static void bookRoom(int id, String kt, int hotelId, int roomNo, Date sDate, Date eDate, boolean checkout) {
-		Connection c = null;
-		Statement stmt = null;
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -47,8 +48,6 @@ public class BookingConnection {
 	 * @param id - Booking ID that is unique.
 	 */
 	public static void deleteBooking(int id) {
-		Connection c = null;
-		Statement stmt = null;
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -74,9 +73,7 @@ public class BookingConnection {
 	 * Function that returns a list of all bookings in the database.
 	 * @return bookings - ArrayList of bookings.
 	 */
-	public ArrayList<Booking> getBookings() {
-		Connection c = null;
-		Statement stmt = null;
+	public static ArrayList<Booking> getBookings() {
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 		
 		try {
@@ -92,6 +89,7 @@ public class BookingConnection {
 				Hotel bookedHotel = HotelConnection.getHotelById(rs.getInt("HotelID"));
 				Room bookedRoom = RoomConnection.getRoomByKey(rs.getInt("HotelID"), rs.getInt("RoomNo"));
 				
+				//Error parsing dates!!
 				Booking booking = new Booking(rs.getInt("ID"), rs.getString("Kennitala"), bookedHotel,
 						bookedRoom, rs.getDate("StartDate"), rs.getDate("EndDate"), rs.getBoolean("LateCheckout"));
 				
@@ -114,9 +112,7 @@ public class BookingConnection {
 	 * @param id - Booking ID that is unique.
 	 * @return booking - Booking with specified ID.
 	 */
-	public Booking getBookingById(int id) {
-		Connection c = null;
-		Statement stmt = null;
+	public static Booking getBookingById(int id) {
 		Booking booking = null;
 		
 		try {
@@ -153,9 +149,7 @@ public class BookingConnection {
 	 * @param kt - Kennitala of person who made booking/s.
 	 * @return bookings - ArrayList of bookings containing specified kennitala.
 	 */
-	public ArrayList<Booking> getBookingByKt(String kt) {
-		Connection c = null;
-		Statement stmt = null;
+	public static ArrayList<Booking> getBookingByKt(String kt) {
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 		
 		try {
@@ -188,9 +182,20 @@ public class BookingConnection {
 		return bookings;
 	}
 	
+	
 	/* Main function for testing purposes */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		ArrayList<Booking> al = getBookings();
+		
+		for (int i = 0; i < al.size(); i++) {
+			System.out.println("Booking ID: " + al.get(i).getBookingId());
+			System.out.println("Kennitala: " + al.get(i).getKennitala());
+			System.out.println("Hotel name: " + al.get(i).getHotel().getName());
+			System.out.println("Room number: " + al.get(i).getRoom().getRoomNo());
+			System.out.println("Start date: " + al.get(i).getStartDate());
+			System.out.println("End date: " + al.get(i).getEndDate());
+			System.out.println("Late checkout: " + al.get(i).getLateCheckout());
+		}
 
 	}
 

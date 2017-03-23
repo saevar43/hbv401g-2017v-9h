@@ -10,13 +10,14 @@ import Model.Hotel;
  */
 public class HotelConnection {
 	
+	private static Connection c = null;
+	private static Statement stmt = null;
+	
 	/*
 	 * Function that INSERTS a hotel into the database.
 	 * @param id, name, rating, location - Parameters necessary to INSERT into the database. 
 	 */
 	public static void addHotel(int id, String name, double rating, String location) {
-		Connection c = null;
-		Statement stmt = null;
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -44,8 +45,6 @@ public class HotelConnection {
 	 * @param id - The ID of the hotel to be removed.
 	 */
 	public static void removeHotel(int id) {
-		Connection c = null;
-		Statement stmt = null;
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -73,8 +72,6 @@ public class HotelConnection {
 	 * @return hotel - The hotel corresponding to the given ID.
 	 */
 	public static Hotel getHotelById(int id) {
-		Connection c = null;
-		Statement stmt = null;
 		Hotel hotel = null;
 		
 		try {
@@ -108,8 +105,6 @@ public class HotelConnection {
 	 * @return hotels - ArrayList of hotels with the specified name.
 	 */
 	public static ArrayList<Hotel> getHotelByName(String name) {
-		Connection c = null;
-		Statement stmt = null;
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
@@ -124,6 +119,7 @@ public class HotelConnection {
 			while (rs.next()) {
 				Hotel hotel = new Hotel(rs.getInt("ID"), rs.getString("Name"), rs.getFloat("Rating"),
 						rs.getString("Location"));
+				
 				hotels.add(hotel);
 			}
 			
@@ -139,13 +135,11 @@ public class HotelConnection {
 	}
 	
 	/*
-	 * Function that returns a list of hotels by rating.
-	 * @param rating - Rating specified.
-	 * @return hotels - ArrayList of hotels with specified rating.
+	 * Function that returns a list of hotels within a rating range.
+	 * @param minRating, maxRating - Lower and upper ranges of rating range.
+	 * @return hotels - ArrayList of hotels within specified rating.
 	 */
-	public static ArrayList<Hotel> getHotelByRating(double rating) {
-		Connection c = null;
-		Statement stmt = null;
+	public static ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
@@ -155,11 +149,12 @@ public class HotelConnection {
 			System.out.println("Opened database sucessfully");
 			
 			stmt = c.createStatement();
-			String sql = "SELECT * FROM Hotels WHERE Rating = " + rating + ";";
+			String sql = "SELECT * FROM Hotels WHERE Rating >= " + minRating + " AND Rating <= " + maxRating + ";";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				Hotel hotel = new Hotel(rs.getInt("ID"), rs.getString("Name"), rs.getFloat("Rating"),
 						rs.getString("Location"));
+				
 				hotels.add(hotel);
 			}
 			
@@ -180,8 +175,6 @@ public class HotelConnection {
 	 * @return hotels - ArrayList of hotels located in specified city.
 	 */
 	public static ArrayList<Hotel> getHotelByLocation(String location) {
-		Connection c = null;
-		Statement stmt = null;
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
@@ -196,6 +189,7 @@ public class HotelConnection {
 			while (rs.next()) {
 				Hotel hotel = new Hotel(rs.getInt("ID"), rs.getString("Name"), rs.getFloat("Rating"),
 						rs.getString("Location"));
+				
 				hotels.add(hotel);
 			}
 			
@@ -210,10 +204,11 @@ public class HotelConnection {
 		return hotels;
 	}
 	
+	
 	/* Main function for testing purposes */
 	public static void main(String[] args) {
 	
-		ArrayList<Hotel> al = getHotelByRating(1.5);
+		ArrayList<Hotel> al = getHotelByRatingRange(1.5, 5.0);
 		
 		for (int i = 0; i < al.size(); i++) {
 			System.out.println("ID: " + al.get(i).getID());
