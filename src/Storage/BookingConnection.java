@@ -149,7 +149,7 @@ public class BookingConnection {
 	 * @param kt - Kennitala of person who made booking/s.
 	 * @return bookings - ArrayList of bookings containing specified kennitala.
 	 */
-	public static ArrayList<Booking> getBookingByKt(String kt) {
+	public static ArrayList<Booking> getBookingsByKt(String kt) {
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 		
 		try {

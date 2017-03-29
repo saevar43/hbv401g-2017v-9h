@@ -8,6 +8,7 @@ public class BookingControlTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
 	}
 
 	@After
