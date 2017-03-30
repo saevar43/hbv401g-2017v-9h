@@ -42,7 +42,7 @@ public class HotelConnectionMock {
 		hotel = new Hotel(9, "Icelandair", 4.5, "Akureyri");
 		hotels.add(hotel);
 		
-		hotel = new Hotel(10, "Edda", 4.0, "Isafjorður");
+		hotel = new Hotel(10, "Edda", 4.0, "Isafjordur");
 		hotels.add(hotel);
 		
 		hotel = new Hotel(11, "Ibis", 3.0, "Akureyri");
