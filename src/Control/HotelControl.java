@@ -1,6 +1,7 @@
 package Control;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import Model.Hotel;
 import Storage.HotelConnection;
@@ -33,14 +34,28 @@ public class HotelControl {
 	}
 	
 	public static ArrayList<Hotel> orderByRating(ArrayList<Hotel> hotels) {
-		// Some sorting algoritmo
+		hotels.sort(Comparator.comparing(Hotel::getRating));
+		return hotels;
 	}
 	
 	public static ArrayList<Hotel> orderByName(ArrayList<Hotel> hotels) {
-		// Some sorting algoritmo
+		hotels.sort(Comparator.comparing(Hotel::getName));
+		return hotels;
 	}
 	
 	public static ArrayList<Hotel> orderByLocation(ArrayList<Hotel> hotels) {
-		// Maybe yet another sorting algoritmo
+		hotels.sort(Comparator.comparing(Hotel::getLocation));
+		return hotels;
+	}
+	
+	public static void main(String [] args) {
+		
+		ArrayList<Hotel> hotels = getHotelByRatingRange(0, 5);
+		
+		ArrayList<Hotel> sortedHotels = orderByRating(hotels);
+		
+		for (int i = 0; i < sortedHotels.size(); i++) {
+			System.out.println(sortedHotels.get(i));
+		}
 	}
 }

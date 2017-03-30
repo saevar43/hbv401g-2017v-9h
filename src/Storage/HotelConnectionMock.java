@@ -24,7 +24,7 @@ public class HotelConnectionMock {
 		hotel = new Hotel(3, "Edda", 2.0, "Reykjavik");
 		hotels.add(hotel);
 		
-		hotel = new Hotel(4, "Hótel Frón", 3.5, "Akureyri");
+		hotel = new Hotel(4, "Hotel Fron", 3.5, "Akureyri");
 		hotels.add(hotel);
 		
 		hotel = new Hotel(5, "Bad Hostel", 1.0, "Reykjavik");
@@ -42,7 +42,7 @@ public class HotelConnectionMock {
 		hotel = new Hotel(9, "Icelandair", 4.5, "Akureyri");
 		hotels.add(hotel);
 		
-		hotel = new Hotel(10, "Edda", 4.0, "Ísafjörður");
+		hotel = new Hotel(10, "Edda", 4.0, "Isafjorður");
 		hotels.add(hotel);
 		
 		hotel = new Hotel(11, "Ibis", 3.0, "Akureyri");
@@ -51,7 +51,7 @@ public class HotelConnectionMock {
 		hotel = new Hotel(12, "Radison", 2.5, "Akranes");
 		hotels.add(hotel);
 		
-		hotel = new Hotel(13, "Icelandair", 1.5, "Egilsstaðir");
+		hotel = new Hotel(13, "Icelandair", 1.5, "Egilsstadir");
 		hotels.add(hotel);
 		
 		hotel = new Hotel(14, "Kex Hostel", 3.5, "Reykjavik");
@@ -60,7 +60,7 @@ public class HotelConnectionMock {
 		hotel = new Hotel(15, "Edda", 4.5, "Reykjavik");
 		hotels.add(hotel);
 		
-		hotel = new Hotel(16, "Ibis", 3.0, "Egilsstaðir");
+		hotel = new Hotel(16, "Ibis", 3.0, "Egilsstadir");
 		hotels.add(hotel);
 		
 		hotel = new Hotel(17, "Radison", 4.5, "Selfoss");
