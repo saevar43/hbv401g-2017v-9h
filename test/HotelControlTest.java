@@ -4,11 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BookingControlTest {
+public class HotelControlTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
 	}
 
 	@After

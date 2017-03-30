@@ -8,7 +8,8 @@ import Model.Hotel;
  * Mock class for HotelConnection which includes hardcoded data for hotels.
  */
 public class HotelConnectionMock {
-	ArrayList<Hotel> hotels;
+	
+	private static ArrayList<Hotel> hotels;
 	
 	public HotelConnectionMock() {
 		
@@ -77,7 +78,7 @@ public class HotelConnectionMock {
 	}
 
 	
-	public Hotel getHotelById(int id) {
+	public static Hotel getHotelById(int id) {
 		
 		for (int i = 0; i < hotels.size(); i++) {
 			if (hotels.get(i).getID() == id) {
@@ -87,7 +88,7 @@ public class HotelConnectionMock {
 		return null;
 	}
 	
-	public ArrayList<Hotel> getHotelByName(String name) {
+	public static ArrayList<Hotel> getHotelByName(String name) {
 		ArrayList<Hotel> nameHotels = new ArrayList<Hotel>();
 		
 		for (int i = 0; i < hotels.size(); i++) {
@@ -99,7 +100,7 @@ public class HotelConnectionMock {
 		return null;
 	}
 	
-	public ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
+	public static ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
 		ArrayList<Hotel> ratingHotels = new ArrayList<Hotel>();
 		
 		for (int i = 0; i < hotels.size(); i++) {
@@ -111,7 +112,7 @@ public class HotelConnectionMock {
 		return null;
 	}
 	
-	public ArrayList<Hotel> getHotelByLocation(String location) {
+	public static ArrayList<Hotel> getHotelByLocation(String location) {
 		ArrayList<Hotel> locationHotels = new ArrayList<Hotel>();
 		
 		for (int i = 0; i < hotels.size(); i++) {
