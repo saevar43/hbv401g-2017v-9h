@@ -8,54 +8,62 @@ import Storage.HotelConnection;
 import Storage.HotelConnectionMock;
 
 public class HotelControl {
+	
+	private HotelConnectionMock hcm = new HotelConnectionMock();
+	
+	public HotelControl() {
+		
+	}
 
-	public static void addHotel(int id, String name, double rating, String location) {
+	public void addHotel(int id, String name, double rating, String location) {
 		HotelConnection.addHotel(id, name, rating, location);
 	}
 	
-	public static void removeHotel(int id) {
+	public void removeHotel(int id) {
 		HotelConnection.removeHotel(id);
 	}
 	
-	public static Hotel getHotelById(int id) {
-		return HotelConnectionMock.getHotelById(id);
+	public Hotel getHotelById(int id) {
+		return hcm.getHotelById(id);
 	}
 	
-	public static ArrayList<Hotel> getHotelByName(String name) {
-		return HotelConnectionMock.getHotelByName(name);
+	public ArrayList<Hotel> getHotelByName(String name) {
+		return hcm.getHotelByName(name);
 	}
 	
-	public static ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
-		return HotelConnectionMock.getHotelByRatingRange(minRating, maxRating);
+	public ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
+		return hcm.getHotelByRatingRange(minRating, maxRating);
 	}
 	
-	public static  ArrayList<Hotel> getHotelByLocation(String location) {
-		return HotelConnectionMock.getHotelByLocation(location);
+	public ArrayList<Hotel> getHotelByLocation(String location) {
+		return hcm.getHotelByLocation(location);
 	}
 	
-	public static ArrayList<Hotel> orderByRating(ArrayList<Hotel> hotels) {
+	public ArrayList<Hotel> orderByRating(ArrayList<Hotel> hotels) {
 		hotels.sort(Comparator.comparing(Hotel::getRating));
 		return hotels;
 	}
 	
-	public static ArrayList<Hotel> orderByName(ArrayList<Hotel> hotels) {
+	public ArrayList<Hotel> orderByName(ArrayList<Hotel> hotels) {
 		hotels.sort(Comparator.comparing(Hotel::getName));
 		return hotels;
 	}
 	
-	public static ArrayList<Hotel> orderByLocation(ArrayList<Hotel> hotels) {
+	public ArrayList<Hotel> orderByLocation(ArrayList<Hotel> hotels) {
 		hotels.sort(Comparator.comparing(Hotel::getLocation));
 		return hotels;
 	}
 	
 	public static void main(String [] args) {
+		HotelControl hc = new HotelControl();
+		ArrayList<Hotel> hotels = hc.getHotelByRatingRange(1, 4);
 		
-		ArrayList<Hotel> hotels = getHotelByRatingRange(0, 5);
+		ArrayList<Hotel> rankingHotels = hc.orderByRating(hotels);
 		
-		ArrayList<Hotel> sortedHotels = orderByRating(hotels);
-		
-		for (int i = 0; i < sortedHotels.size(); i++) {
-			System.out.println(sortedHotels.get(i));
+		for (int i = 0; i < rankingHotels.size(); i++) {
+			System.out.println(rankingHotels.get(i).getID() + ", " + rankingHotels.get(i).getName() + ", " 
+					+ rankingHotels.get(i).getRating() + ", " + rankingHotels.get(i).getLocation());
 		}
+		
 	}
 }

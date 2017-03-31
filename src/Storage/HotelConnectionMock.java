@@ -9,7 +9,7 @@ import Model.Hotel;
  */
 public class HotelConnectionMock {
 	
-	private static ArrayList<Hotel> hotels;
+	private ArrayList<Hotel> hotels;
 	
 	public HotelConnectionMock() {
 		
@@ -78,7 +78,7 @@ public class HotelConnectionMock {
 	}
 
 	
-	public static Hotel getHotelById(int id) {
+	public Hotel getHotelById(int id) {
 		
 		for (int i = 0; i < hotels.size(); i++) {
 			if (hotels.get(i).getID() == id) {
@@ -88,40 +88,38 @@ public class HotelConnectionMock {
 		return null;
 	}
 	
-	public static ArrayList<Hotel> getHotelByName(String name) {
+	public ArrayList<Hotel> getHotelByName(String name) {
 		ArrayList<Hotel> nameHotels = new ArrayList<Hotel>();
 		
 		for (int i = 0; i < hotels.size(); i++) {
 			if (hotels.get(i).getName() == name) {
 				nameHotels.add(hotels.get(i));
-				return nameHotels;
 			}
 		}
-		return null;
+		return nameHotels;
 	}
 	
-	public static ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
+	public ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
+		
 		ArrayList<Hotel> ratingHotels = new ArrayList<Hotel>();
 		
 		for (int i = 0; i < hotels.size(); i++) {
 			if (hotels.get(i).getRating() > minRating && hotels.get(i).getRating() < maxRating) {
 				ratingHotels.add(hotels.get(i));
-				return ratingHotels;
 			}
 		}
-		return null;
+		return ratingHotels;
 	}
 	
-	public static ArrayList<Hotel> getHotelByLocation(String location) {
+	public ArrayList<Hotel> getHotelByLocation(String location) {
 		ArrayList<Hotel> locationHotels = new ArrayList<Hotel>();
 		
 		for (int i = 0; i < hotels.size(); i++) {
 			if (hotels.get(i).getLocation() == location) {
 				locationHotels.add(hotels.get(i));
-				return locationHotels;
 			}
 		}
-		return null;
+		return locationHotels;
 	}
 }
 

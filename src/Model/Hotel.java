@@ -57,7 +57,7 @@ public class Hotel {
 	 * Getter for Hotel location.
 	 * @return LOCATION - Location of Hotel.
 	 */
-	public  String getLocation() {
+	public String getLocation() {
 		return LOCATION;
 	}
 }
