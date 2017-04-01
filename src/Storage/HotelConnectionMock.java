@@ -11,10 +11,14 @@ public class HotelConnectionMock {
 	
 	private ArrayList<Hotel> hotels;
 	
+	/*
+	 * Constructor for HotelConnectionMock. Creates a hardcoded list of Hotels.
+	 */
 	public HotelConnectionMock() {
 		
 		hotels = new ArrayList<Hotel>();
 		
+		// Add 20 hotels to the list hotels, ordered by their ID.
 		Hotel hotel = new Hotel(1, "Radison", 3.5, "Reykjavik");
 		hotels.add(hotel);
 		
@@ -77,7 +81,10 @@ public class HotelConnectionMock {
 		
 	}
 
-	
+	/*
+	 * A function that gets a hotel form the list by its ID.
+	 * If no hotel is found it return null.
+	 */
 	public Hotel getHotelById(int id) {
 		
 		for (int i = 0; i < hotels.size(); i++) {
@@ -88,6 +95,10 @@ public class HotelConnectionMock {
 		return null;
 	}
 	
+	/*
+	 * A function that gets hotels from the list by their name.
+	 * If no hotel is found return null.
+	 */
 	public ArrayList<Hotel> getHotelByName(String name) {
 		ArrayList<Hotel> nameHotels = new ArrayList<Hotel>();
 		
@@ -96,9 +107,17 @@ public class HotelConnectionMock {
 				nameHotels.add(hotels.get(i));
 			}
 		}
-		return nameHotels;
+		if (nameHotels.isEmpty()) {
+			return null;
+		} else {
+			return nameHotels;
+		}
 	}
 	
+	/*
+	 * A function that gets hotels from the list with a rating within a specified range.
+	 * If no hotel is found return null.
+	 */
 	public ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
 		
 		ArrayList<Hotel> ratingHotels = new ArrayList<Hotel>();
@@ -108,9 +127,17 @@ public class HotelConnectionMock {
 				ratingHotels.add(hotels.get(i));
 			}
 		}
-		return ratingHotels;
+		if (ratingHotels.isEmpty()) {
+			return null;
+		} else {
+			return ratingHotels;
+		}
 	}
 	
+	/*
+	 * A function that gets hotels from the list by their location.
+	 * If no hotel is found return null.
+	 */
 	public ArrayList<Hotel> getHotelByLocation(String location) {
 		ArrayList<Hotel> locationHotels = new ArrayList<Hotel>();
 		
@@ -119,7 +146,11 @@ public class HotelConnectionMock {
 				locationHotels.add(hotels.get(i));
 			}
 		}
-		return locationHotels;
+		if (locationHotels.isEmpty()) {
+			return null;
+		} else {
+			return locationHotels;
+		}
 	}
 }
 
