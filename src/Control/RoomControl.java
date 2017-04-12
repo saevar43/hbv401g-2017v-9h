@@ -7,37 +7,68 @@ import Storage.RoomConnection;
 
 public class RoomControl {
 	
-	public static void addRoom(int hotelId, int roomNo, String type, double price) {
-		RoomConnection.addRoom(hotelId, roomNo, type, price);
+	private RoomConnection rconn = new RoomConnection();
+	
+	/*
+	 * Constructor for RoomControl.
+	 */
+	public RoomControl() {
+		
 	}
 	
-	public static void removeRoom(int hotelId, int roomNo) {
-		RoomConnection.removeRoom(hotelId, roomNo);
+	/*
+	 * A function that adds a room to the database.
+	 * Simply calls the corresponding function from RoomConnection.
+	 */
+	public void addRoom(int hotelId, int roomNo, String type, double price) {
+		rconn.addRoom(hotelId, roomNo, type, price);
 	}
 	
-	public static ArrayList<Room> getRooms() {
-		return RoomConnection.getRooms();
+	/*
+	 * A function that removes a room from the database.
+	 * Simply calls the corresponding function from RoomConnection.
+	 */
+	public void removeRoom(int hotelId, int roomNo) {
+		rconn.removeRoom(hotelId, roomNo);
 	}
 	
-	public static Room getRoomByKey(int hotelId, int roomNo) {
-		return RoomConnection.getRoomByKey(hotelId, roomNo);
+	/*
+	 * A function that gets all rooms from the database.
+	 * Simply calls the corresponding function from RoomConnection.
+	 */
+	public ArrayList<Room> getRooms() {
+		return rconn.getRooms();
 	}
 	
-	public static ArrayList<Room> getRoomsByHotel(int hotelId) {
-		return RoomConnection.getRoomsByHotel(hotelId);
+	/*
+	 * A function that gets a room by its key.
+	 * Simply calls the corresponding function from RoomConnection.
+	 */
+	public Room getRoomByKey(int hotelId, int roomNo) {
+		return rconn.getRoomByKey(hotelId, roomNo);
 	}
 	
-	public static ArrayList<Room> getRoomsByType(String type) {
-		return RoomConnection.getRoomsByType(type);
+	/*
+	 * A function that gets rooms by hotel.
+	 * Simply calls the corresponding function from RoomConnection.
+	 */
+	public ArrayList<Room> getRoomsByHotel(int hotelId) {
+		return rconn.getRoomsByHotel(hotelId);
 	}
 	
-	public static ArrayList<Room> getRoomsByPriceRange(double minPrice, double maxPrice) {
-		return RoomConnection.getRoomsByPriceRange(minPrice, maxPrice);
+	/*
+	 * A function that gets rooms by type.
+	 * Simply calls the corresponding function from RoomConnection.
+	 */
+	public ArrayList<Room> getRoomsByType(String type) {
+		return rconn.getRoomsByType(type);
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	/*
+	 * A function that gets rooms by price range.
+	 * Simply calls teh corresponding function from RoomConnection.
+	 */
+	public ArrayList<Room> getRoomsByPriceRange(double minPrice, double maxPrice) {
+		return rconn.getRoomsByPriceRange(minPrice, maxPrice);
 	}
-
 }

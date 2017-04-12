@@ -11,14 +11,22 @@ import Model.Room;
  */
 public class RoomConnection {
 	
-	private static Connection c = null;
-	private static Statement stmt = null;
-	 
+	private Connection c;
+	private Statement stmt;
+	
+	/*
+	 * Constructor for RoomConnection.Sets Connection and Statement to null.
+	 */
+	public RoomConnection() {
+		c = null;
+		stmt = null;
+	}
+	
 	/*
 	 * Function that adds a room to the database.
 	 * @param hotelId, roomNo, type, price - Variables necessary to create a new room.
 	 */
-	public static void addRoom(int hotelId, int roomNo, String type, double price) {
+	public void addRoom(int hotelId, int roomNo, String type, double price) {
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -45,7 +53,7 @@ public class RoomConnection {
 	 * Function that removes a room from the database.
 	 * @param hotelId, roomNo - ID of hotel containing the room and the room number. Is a key.
 	 */
-	public static void removeRoom(int hotelId, int roomNo) {
+	public void removeRoom(int hotelId, int roomNo) {
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -71,7 +79,7 @@ public class RoomConnection {
 	 * Function that return all rooms in the database.
 	 * @return rooms - ArrayList of all rooms in the database.
 	 */
-	public static ArrayList<Room> getRooms() {
+	public ArrayList<Room> getRooms() {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		try {
@@ -106,7 +114,7 @@ public class RoomConnection {
 	 * @param hotelId, roomNo - Key specific to the room.
 	 * @return room - The room specified by the key.
 	 */
-	public static Room getRoomByKey(int hotelId, int roomNo) {
+	public Room getRoomByKey(int hotelId, int roomNo) {
 		Room room = null;
 		
 		try {
@@ -138,7 +146,7 @@ public class RoomConnection {
 	 * @param hotelId - ID of the hotel.
 	 * @return rooms - ArrayList of rooms in the hotel.
 	 */
-	public static ArrayList<Room> getRoomsByHotel(int hotelId) {
+	public ArrayList<Room> getRoomsByHotel(int hotelId) {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		try {
@@ -173,7 +181,7 @@ public class RoomConnection {
 	 * @param type - Type of rooms wanted.
 	 * @return - Rooms of specified type.
 	 */
-	public static ArrayList<Room> getRoomsByType(String type) {
+	public ArrayList<Room> getRoomsByType(String type) {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		try {
@@ -208,7 +216,7 @@ public class RoomConnection {
 	 * @param minPrice, maxPrice - Lower and upper ranges of price range.
 	 * @return rooms - ArrayList of rooms within specified price range.
 	 */
-	public static ArrayList<Room> getRoomsByPriceRange(double minPrice, double maxPrice) {
+	public ArrayList<Room> getRoomsByPriceRange(double minPrice, double maxPrice) {
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		
 		try {
@@ -237,18 +245,4 @@ public class RoomConnection {
 		System.out.println("Successfully fetched rooms from database.");
 		return rooms;
 	}
-	
-	
-	public static void main(String[] args) {
-		ArrayList<Room> al = getRooms();
-		
-		for (int i = 0; i < al.size(); i++) {
-			System.out.println("Hotel ID: " + al.get(i).getHotelId());
-			System.out.println("Room No.: " + al.get(i).getRoomNo());
-			System.out.println("Room type: " + al.get(i).getType());
-			System.out.println("Price: " + al.get(i).getPrice() + " per night.");
-		}
-
-	}
-
 }

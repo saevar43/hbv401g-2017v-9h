@@ -5,15 +5,14 @@ import java.util.Comparator;
 
 import Model.Hotel;
 import Storage.HotelConnection;
-import Storage.HotelConnectionMock;
 
 /*
  * A class that contains functions used to control the Hotel type and its lists.
  */
 public class HotelControl {
 	
-	// Create a new instance of HotelConnectionMock to use in functions.
-	private HotelConnectionMock hcm = new HotelConnectionMock();
+	// Create a new instance of HotelConnection to use in functions.
+	private HotelConnection hconn = new HotelConnection();
 	
 	/*
 	 * A constructor for HotelControl.
@@ -27,7 +26,7 @@ public class HotelControl {
 	 * Simply calls the corresponding function from HotelConnection.
 	 */
 	public void addHotel(int id, String name, double rating, String location) {
-		HotelConnection.addHotel(id, name, rating, location);
+		hconn.addHotel(id, name, rating, location);
 	}
 	
 	/*
@@ -35,7 +34,7 @@ public class HotelControl {
 	 * Simply calls the corresponding function from HotelConnection.
 	 */
 	public void removeHotel(int id) {
-		HotelConnection.removeHotel(id);
+		hconn.removeHotel(id);
 	}
 	
 	/*
@@ -43,7 +42,7 @@ public class HotelControl {
 	 * Simply calls the corresponding function from HotelConnection (or HotelConnectionMock).
 	 */
 	public Hotel getHotelById(int id) {
-		return hcm.getHotelById(id);
+		return hconn.getHotelById(id);
 	}
 	
 	/*
@@ -51,7 +50,7 @@ public class HotelControl {
 	 * Simply calls the corresponding function from HotelConnection (or HotelConnectionMock).
 	 */
 	public ArrayList<Hotel> getHotelByName(String name) {
-		return hcm.getHotelByName(name);
+		return hconn.getHotelByName(name);
 	}
 	
 	/*
@@ -59,7 +58,7 @@ public class HotelControl {
 	 * Simply calls the corresponding function from HotelConnection (or HotelConnectionMock).
 	 */
 	public ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
-		return hcm.getHotelByRatingRange(minRating, maxRating);
+		return hconn.getHotelByRatingRange(minRating, maxRating);
 	}
 	
 	/*
@@ -67,7 +66,7 @@ public class HotelControl {
 	 * Simply calls the corresponding function from HotelConnection (or HotelConnectionMock).
 	 */
 	public ArrayList<Hotel> getHotelByLocation(String location) {
-		return hcm.getHotelByLocation(location);
+		return hconn.getHotelByLocation(location);
 	}
 	
 	/*

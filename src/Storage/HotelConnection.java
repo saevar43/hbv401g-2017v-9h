@@ -10,14 +10,22 @@ import Model.Hotel;
  */
 public class HotelConnection {
 	
-	private static Connection c = null;
-	private static Statement stmt = null;
+	private Connection c;
+	private Statement stmt;
+	
+	/*
+	 * Constructor for HotelConnection. Sets Connection and Statement to null.
+	 */
+	public HotelConnection() {
+		c = null;
+		stmt = null;
+	}
 	
 	/*
 	 * Function that INSERTS a hotel into the database.
 	 * @param id, name, rating, location - Parameters necessary to INSERT into the database. 
 	 */
-	public static void addHotel(int id, String name, double rating, String location) {
+	public void addHotel(int id, String name, double rating, String location) {
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -44,7 +52,7 @@ public class HotelConnection {
 	 * Function that DELETES a hotel from the database.
 	 * @param id - The ID of the hotel to be removed.
 	 */
-	public static void removeHotel(int id) {
+	public void removeHotel(int id) {
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -71,7 +79,7 @@ public class HotelConnection {
 	 * @param id - The ID of the hotel to be returned.
 	 * @return hotel - The hotel corresponding to the given ID.
 	 */
-	public static Hotel getHotelById(int id) {
+	public Hotel getHotelById(int id) {
 		Hotel hotel = null;
 		
 		try {
@@ -104,7 +112,7 @@ public class HotelConnection {
 	 * @param name - Name specified.
 	 * @return hotels - ArrayList of hotels with the specified name.
 	 */
-	public static ArrayList<Hotel> getHotelByName(String name) {
+	public ArrayList<Hotel> getHotelByName(String name) {
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
@@ -139,7 +147,7 @@ public class HotelConnection {
 	 * @param minRating, maxRating - Lower and upper ranges of rating range.
 	 * @return hotels - ArrayList of hotels within specified rating.
 	 */
-	public static ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
+	public ArrayList<Hotel> getHotelByRatingRange(double minRating, double maxRating) {
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
@@ -174,7 +182,7 @@ public class HotelConnection {
 	 * @param location - Name of city searched for.
 	 * @return hotels - ArrayList of hotels located in specified city.
 	 */
-	public static ArrayList<Hotel> getHotelByLocation(String location) {
+	public ArrayList<Hotel> getHotelByLocation(String location) {
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
@@ -202,19 +210,5 @@ public class HotelConnection {
 		}
 		System.out.println("Successfully fetched hotels from database.");
 		return hotels;
-	}
-	
-	
-	/* Main function for testing purposes */
-	public static void main(String[] args) {
-	
-		ArrayList<Hotel> al = getHotelByRatingRange(1.5, 5.0);
-		
-		for (int i = 0; i < al.size(); i++) {
-			System.out.println("ID: " + al.get(i).getID());
-			System.out.println("Name: " + al.get(i).getName());
-			System.out.println("Rating: " + al.get(i).getRating() + " stars.");
-			System.out.println("Location: " + al.get(i).getLocation());
-		}
 	}
 }

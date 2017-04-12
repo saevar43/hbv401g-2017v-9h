@@ -7,30 +7,52 @@ import Storage.BookingConnection;
 
 public class BookingControl {
 	
-	public static void bookRoom(int id, String kt, int hotelId, int roomNo, Date sDate, Date eDate, boolean checkout) {
-		BookingConnection.bookRoom(id, kt, hotelId, roomNo, sDate, eDate, checkout);
+	private BookingConnection bconn = new BookingConnection();
+	
+	/*
+	 * Constructor for BookingControl.
+	 */
+	public BookingControl() {
+		
 	}
 	
-	public static void deleteBooking(int id) {
-		BookingConnection.deleteBooking(id);
+	/*
+	 * A function that books a room, i.e. adds a booking to the database.
+	 * Simply calls the corresponding function from BookingConnection.
+	 */
+	public void bookRoom(int id, String kt, int hotelId, int roomNo, Date sDate, Date eDate, boolean checkout) {
+		bconn.bookRoom(id, kt, hotelId, roomNo, sDate, eDate, checkout);
 	}
 	
-	public static ArrayList<Booking> getBookings() {
-		return BookingConnection.getBookings();
+	/*
+	 * A function that deletes a booking from the database.
+	 * Simply calls the corresponding function from BookingConnection.
+	 */
+	public void deleteBooking(int id) {
+		bconn.deleteBooking(id);
+	}
+	
+	/*
+	 * A function that gets all bookings from the database.
+	 * Simply calls the corresponding function from BookingConnection.
+	 */
+	public ArrayList<Booking> getBookings() {
+		return bconn.getBookings();
 	}
 
-	public static Booking getBookingById(int id) {
-		return BookingConnection.getBookingById(id);
+	/*
+	 * A function that gets a booking by its ID.
+	 * Simply calls the corresponding function from BookingConnection.
+	 */
+	public Booking getBookingById(int id) {
+		return bconn.getBookingById(id);
 	}
 	
-	public static ArrayList<Booking> getBookingsByKt(String kt) {
-		return BookingConnection.getBookingsByKt(kt);
+	/*
+	 * A function that gets booking by their attached kennitala.
+	 * Simply calls the corresponding function from BookingConnection.
+	 */
+	public ArrayList<Booking> getBookingsByKt(String kt) {
+		return bconn.getBookingsByKt(kt);
 	}
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
