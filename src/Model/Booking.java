@@ -11,14 +11,14 @@ public class Booking {
 	private String KENNITALA;
 	private Hotel hotel;
 	private Room room;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	private boolean lateCheckout;
 	
 	/*
 	 * Constructor for Booking.
 	 */
-	public Booking(int id, String kt, Hotel bookedHotel, Room bookedRoom, Date sDate, Date eDate, boolean checkout) {
+	public Booking(int id, String kt, Hotel bookedHotel, Room bookedRoom, String sDate, String eDate, boolean checkout) {
 		BOOKING_ID = id;
 		KENNITALA = kt;
 		hotel = bookedHotel;
@@ -80,7 +80,7 @@ public class Booking {
 	 * Setter for starting date of booking.
 	 * @param startDate - starting date of booking.
 	 */
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 	
@@ -88,7 +88,7 @@ public class Booking {
 	 * Getter for starting date of booking.
 	 * @return startDate - starting date of booking.
 	 */
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 	
@@ -96,7 +96,7 @@ public class Booking {
 	 * Setter for end date of booking.
 	 * @param endDate - end date of booking.
 	 */
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 	
@@ -104,7 +104,7 @@ public class Booking {
 	 * Getter for end date of booking.
 	 * @return endDate - end date of booking.
 	 */
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 	

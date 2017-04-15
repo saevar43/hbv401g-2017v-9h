@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jBookButton" min="-2" pref="120" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTitleLabel" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jKtLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jHotelLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRoomLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jChkinLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jChkoutLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jKtText" max="32767" attributes="0"/>
+                          <Component id="jHotelText" max="32767" attributes="0"/>
+                          <Component id="jRoomText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jChkinText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jChkoutText" alignment="0" pref="394" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLateComboBox" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTitleLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jKtLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jKtText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jHotelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jHotelText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jRoomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRoomText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jChkinLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jChkinText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jChkoutLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jChkoutText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLateComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jBookButton" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="jBookButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Book Room"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBookButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jTitleLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="16" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Book Room"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jHotelLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hotel:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jRoomLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Room No.:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jChkinLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Check-in:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jChkoutLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Check-out:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLateLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Late Checkout:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jKtLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kennitala/SSN:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jKtText">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter SSN"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jKtTextFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jHotelText">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jRoomText">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jChkinText">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter Check-in date (YYYY-MM-DD)"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jChkinTextFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jChkoutText">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter Check-out date (YYYY-MM-DD)"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jChkoutTextFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jLateComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="No"/>
+            <StringItem index="1" value="Yes"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>

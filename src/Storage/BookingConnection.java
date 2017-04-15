@@ -33,22 +33,35 @@ public class BookingConnection {
 	 * Function that adds a booking to the database.
 	 * @params id, kt, hotelId, roomNo, sDate, eDate, checkout - Variables to create new booking.
 	 */
-	public void bookRoom(int id, String kt, int hotelId, int roomNo, Date sDate, Date eDate, boolean checkout) {
+	public void bookRoom(int id, String kt, int hotelId, int roomNo, String sDate, String eDate, boolean checkout) {
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:hotelbooking.db");
 			c.setAutoCommit(false);
 			System.out.println("Opened database sucessfully");
+                        
+                        if (checkout == false) {
 			
-			stmt = c.createStatement();
-			String sql = "INSERT INTO Bookings VALUES (" + id + ", '" + kt + "', " + hotelId + ", " + roomNo + ", '"
-					+ sDate + "', '" + eDate + "', " + checkout + ");";
-			stmt.executeUpdate(sql);
+                            stmt = c.createStatement();
+                            String sql = "INSERT INTO Bookings VALUES (" + id + ", '" + kt + "', " + hotelId + ", " + roomNo + ", '"
+					+ sDate + "', '" + eDate + "', 'FALSE');";
+                            stmt.executeUpdate(sql);
 			
-			stmt.close();
-			c.commit();
-			c.close();
+                            stmt.close();
+                            c.commit();
+                            c.close();
+                        }else {
+                            stmt = c.createStatement();
+                            String sql = "INSERT INTO Bookings VALUES (" + id + ", '" + kt + "', " + hotelId + ", " + roomNo + ", '"
+					+ sDate + "', '" + eDate + "', 'TRUE');";
+                            stmt.executeUpdate(sql);
+			
+                            stmt.close();
+                            c.commit();
+                            c.close();
+                        }
+                        
 		} catch(Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
@@ -104,7 +117,7 @@ public class BookingConnection {
 				
 				//Error parsing dates!!
 				Booking booking = new Booking(rs.getInt("ID"), rs.getString("Kennitala"), bookedHotel,
-						bookedRoom, rs.getDate("StartDate"), rs.getDate("EndDate"), rs.getBoolean("LateCheckout"));
+						bookedRoom, rs.getString("StartDate"), rs.getString("EndDate"), rs.getBoolean("LateCheckout"));
 				
 				bookings.add(booking);
 			}
@@ -142,7 +155,7 @@ public class BookingConnection {
 				Room bookedRoom = rconn.getRoomByKey(rs.getInt("HotelID"), rs.getInt("RoomNo"));
 				
 				booking = new Booking(rs.getInt("ID"), rs.getString("Kennitala"), bookedHotel,
-						bookedRoom, rs.getDate("StartDate"), rs.getDate("EndDate"), rs.getBoolean("LateCheckout"));
+						bookedRoom, rs.getString("StartDate"), rs.getString("EndDate"), rs.getBoolean("LateCheckout"));
 				
 			}
 			
@@ -179,7 +192,7 @@ public class BookingConnection {
 				Room bookedRoom = rconn.getRoomByKey(rs.getInt("HotelID"), rs.getInt("RoomNo"));
 				
 				Booking booking = new Booking(rs.getInt("ID"), rs.getString("Kennitala"), bookedHotel,
-						bookedRoom, rs.getDate("StartDate"), rs.getDate("EndDate"), rs.getBoolean("LateCheckout"));
+						bookedRoom, rs.getString("StartDate"), rs.getString("EndDate"), rs.getBoolean("LateCheckout"));
 				
 				bookings.add(booking);
 			}
